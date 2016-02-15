@@ -1,0 +1,82 @@
+<!--<div class="jumbotron">
+    <h1>{{message}}</h1>
+    <p>
+        <a class="btn btn-primary btn-lg" role="button">
+            Performance Charts for you.
+        </a>
+    </p>
+</div>-->
+
+<div class="row text-center" style="margin-top:40px;">
+    <div ng-controller="PieCtrl" class="col-md-6" draggable="true" style=" resize: both; overflow: auto;">
+        <h3>total sales values for each sales man</h3>
+        <canvas id="pie" class="chart chart-pie"
+                chart-data="data" chart-labels="labels" chart-legend="true"></canvas>
+        <button class="btn btn-default" ng-click="refresh()">Refresh</button>
+    </div>
+
+    <div ng-controller="PieCtrl2" class="col-md-6" draggable="true">
+        <h3>total sales per month (Pie)</h3>
+        <canvas id="pie2" class="chart chart-pie"
+                chart-data="data" chart-labels="labels" chart-legend="true"></canvas>
+        <button class="btn btn-default" ng-click="refresh()">Refresh</button>
+    </div>
+</div>
+<div class="row text-center">
+    <div ng-controller="BarCtrl" class="col-md-6">
+        <h3>total sales per month (Bar)</h3>
+        <canvas id="bar" class="chart chart-bar"
+                chart-data="data" chart-labels="labels"
+                chart-series="series"></canvas>
+        <button class="btn btn-default" ng-click="refresh()">Refresh</button>
+    </div>
+
+
+    <div ng-controller="LineCtrl" class="col-md-6">
+        <h3>Lines Chart Example</h3>
+        <canvas id="line" class="chart chart-line" chart-data="data"
+                chart-labels="labels" chart-legend="true" chart-series="series"
+                chart-click="onClick"></canvas>
+        <button class="btn btn-default" ng-click="refresh()">Refresh</button>
+    </div>
+</div>
+
+<!--NEW CHARTS LAST-->
+<div class="row text-center">
+    <div ng-controller="BaseCtrl" class="col-md-6">
+        <h3>top 5 sales men in last 3 months. (Pie / PolarArea)</h3>
+        <canvas id="base" class="chart-base" chart-type="type"
+                chart-data="data" chart-labels="labels" chart-legend="true"></canvas>
+        <button class="btn btn-default" ng-click="toggle()">Toogle Design</button>
+        <button class="btn btn-default" ng-click="refresh()">Refresh</button>
+    </div>
+
+
+    <div ng-controller="TableCtrl" class="col-md-6">
+        <!--<p>    Click <a ng-click="loadPeople()">here</a> to load data.</p>-->
+        <h3>top 5 sales orders in amount</h3>
+        <table  class="table table-striped table-hover table-responsive text-center">
+            <tr>
+                <th>orderNum</th>
+                <th>userName</th>
+                <th>value</th>
+                <th>qty</th>
+            </tr>
+            <tr ng-repeat="person in people">
+                <td>{{person.orderNum}}</td>
+                <td>{{person.userName}}</td>
+                <td>{{person.value}}</td>
+                <td>{{person.qty}}</td>
+            </tr>
+        </table>
+        <button class="btn btn-default" ng-click="refresh()">Refresh</button>
+    </div>
+</div>
+</div>
+<script>
+    $(document).ready(function () {
+        $("#mainMenu").show();
+        $("#mainFooter").show();
+    });
+</script>
+

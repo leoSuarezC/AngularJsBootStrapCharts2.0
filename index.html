@@ -1,0 +1,175 @@
+﻿<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CrossOver Test: Edgar Suarez</title>
+    <script data-require="jquery@*" data-semver="2.1.1" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link data-require="bootstrap@3.2.0" data-semver="3.2.0" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.css" />
+    <script data-require="bootstrap@3.2.0" data-semver="3.2.0" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.js"></script>
+    <script data-require="angular.js@1.3.0" data-semver="1.3.0" src="http://code.angularjs.org/1.3.0/angular.js"></script>
+    <script data-require="ng-route@1.2.0" data-semver="1.2.0" src="http://code.angularjs.org/1.2.0-rc.3/angular-route.js"></script>
+    <!--GRAPHIC PLUGINS-->
+    <script src="Chart.js-master/Chart.js"></script>
+    <link href="graph/angular-chart.css" rel="stylesheet" />
+    <script src="graph/angular-chart.js"></script>
+    <!--END OF: GRAPHIC PLUGINS-->
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/app.js"></script>
+    <script src="js/controllers.js"></script>
+</head>
+<body data-ng-app="spaApp">
+    <div class="container">
+        <!--NAV SECTION-->
+        <nav id="mainMenu" class="navbar-wrapper navbar-default navbar-fixed-top" role="navigation">
+            <div class="clearfix" ng-controller="LogOutCtrl">
+                <ul class="nav nav-tabs">
+                    <li role="presentation"><a href="#/inicio">Home Page</a></li>
+                    <li role="presentation"><a href="#/perfil">Profile</a></li>
+                    <li role="presentation"><a href="#/mensajes">Messages</a></li>
+                    <li role="presentation" class="active"><a>Welcome: {{userName}}</a></li>
+                    <li role="presentation"><a class="btn btn-danger btn-sm" ng-click="logOut()">LogOut</a></li>
+
+                    <!--<div ng-controller="LogOutCtrl" >
+                        <button type="button" class="btn btn-danger btn-sm" ng-click="logOut()">LogOut</button>
+                    </div>-->
+                </ul>
+            </div>
+
+
+
+        </nav>
+        <!--END OF: NAV SECTION-->
+        <!--DYNAMIC ANGULAR APPLICATION SECTION-->
+        <div data-ng-view=""></div>
+        <!--END OF: DYNAMIC ANGULAR APPLICATION SECTION-->
+
+
+    </div>
+    <div class="container-fluid">
+        <!--FOOTER SECTION-->
+        <footer id="mainFooter" class=' row footer text-center' style="position: static; bottom: 40px; left: auto; margin-top: 15px; border-top: solid 5px; padding: 0.5% 20% 0.5%; background-color: black; ">
+            <!--HIDDEN MODALS-->
+            <!-- Modal -->
+            <!--PRIVACY MODAL-->
+            <div class="modal fade" id="myModalPrivacy" role="dialog">
+                <div class="modal-dialog">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Privacy Policy</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!--TERMS MODAL-->
+            <div class="modal fade" id="myModalTerms" role="dialog">
+                <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Terms of Use</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!--SUPPORT MODAL-->
+            <div class="modal fade" id="myModalSupport" role="dialog">
+                <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Support</h4>
+                        </div>
+                        <div class="modal-body" ng-controller="ModalFormCtrl">
+                            <form  class="form-horizontal" role="form">
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2" for="email">Subject:</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="modalSubject" placeholder="Enter Subject" ng-model="user.subject" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2" for="pwd">Text:</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" placeholder="Enter text" class="form-control" id="modalText" ng-model="user.text" required>
+                                    </div>
+                                </div>
+                                <br><br>
+                                <h3 style=" color:green;">
+                                    {{sending}}
+                                </h3>
+
+                                <div class="form-group">
+                                    <div class=" col-sm-2">
+                                        <button class="btn btn-default" ng-click="send()">Send</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!--END OF : HIDDEN MODALS-->
+            <div class="col-md-6" style="">
+                <div class="row">
+                    <div class="col-md-4">
+                        <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModalPrivacy">Privacy Policy</button>
+                    </div>
+                    <div class="col-md-4">
+                        <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModalTerms">Terms of Use</button>
+                    </div>
+                    <div class="col-md-4">
+                        <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModalSupport">Support</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+
+            </div>
+            <div class="col-md-3">
+                <!--<h5>
+                    Copyright Leonardo Su�rez
+                    Elionxl900@gmail.com
+                </h5>-->
+            </div>
+        </footer>
+        <!--END OF FOOTER SECTION-->
+    </div>
+
+
+    <script>
+        window.location.href = "#/login";
+    </script>
+
+    <script>
+
+        $(document).ready(function () {
+            $("#mainMenu").show();
+        });
+    </script>
+</body>
+</html>
